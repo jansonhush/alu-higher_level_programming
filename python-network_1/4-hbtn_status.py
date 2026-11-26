@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-"""Fetches https://alu-intranet.hbtn.io/status using requests"""
+"""Fetches https://alu-intranet.hbtn.io/status"""
 import requests
+
 
 if __name__ == "__main__":
     r = requests.get("https://alu-intranet.hbtn.io/status")

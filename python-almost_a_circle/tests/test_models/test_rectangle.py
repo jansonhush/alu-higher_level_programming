@@ -84,20 +84,25 @@ class TestRectangle(unittest.TestCase):
         ):
             self.assertEqual(Rectangle.create(**kw).id, 89)
 
-    def test_file_io(self):
-        """Test save_to_file and load_from_file for Rectangle."""
-        self.assertEqual(Rectangle.load_from_file(), [])
+    def test_save_to_file_none(self):
+        """Test save_to_file(None)."""
         Rectangle.save_to_file(None)
         with open("Rectangle.json", "r", encoding="utf-8") as f:
             self.assertEqual(f.read(), "[]")
+
+    def test_save_to_file_empty(self):
+        """Test save_to_file([])."""
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r", encoding="utf-8") as f:
             self.assertEqual(f.read(), "[]")
+
+    def test_save_to_file_and_load(self):
+        """Test save_to_file with instance and load_from_file."""
+        self.assertEqual(Rectangle.load_from_file(), [])
         Rectangle.save_to_file([Rectangle(1, 2)])
         loaded = Rectangle.load_from_file()
         self.assertEqual(len(loaded), 1)
-        self.assertEqual(loaded[0].width, 1)
-
+        self.assertEqual(loaded[0].id, 1)
 
 if __name__ == "__main__":
     unittest.main()

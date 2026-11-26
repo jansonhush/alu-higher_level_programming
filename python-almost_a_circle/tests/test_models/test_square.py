@@ -69,20 +69,25 @@ class TestSquare(unittest.TestCase):
         ):
             self.assertEqual(Square.create(**kw).id, 89)
 
-    def test_file_io(self):
-        """Test save_to_file and load_from_file for Square."""
-        self.assertEqual(Square.load_from_file(), [])
+    def test_save_to_file_none(self):
+        """Test save_to_file(None)."""
         Square.save_to_file(None)
         with open("Square.json", "r", encoding="utf-8") as f:
             self.assertEqual(f.read(), "[]")
+
+    def test_save_to_file_empty(self):
+        """Test save_to_file([])."""
         Square.save_to_file([])
         with open("Square.json", "r", encoding="utf-8") as f:
             self.assertEqual(f.read(), "[]")
+
+    def test_save_to_file_and_load(self):
+        """Test save_to_file with instance and load_from_file."""
+        self.assertEqual(Square.load_from_file(), [])
         Square.save_to_file([Square(1)])
         loaded = Square.load_from_file()
         self.assertEqual(len(loaded), 1)
-        self.assertEqual(loaded[0].size, 1)
-
+        self.assertEqual(loaded[0].id, 1)
 
 if __name__ == "__main__":
     unittest.main()

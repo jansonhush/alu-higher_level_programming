@@ -1,0 +1,46 @@
+================================
+How to Use 5-text_indentation.py
+================================
+
+Importing the function:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Standard text with '.', '?', and ':':
+    >>> text_indentation("Holberton. School? How are you: John")
+    Holberton.
+    <BLANKLINE>
+    School?
+    <BLANKLINE>
+    How are you:
+    <BLANKLINE>
+    John
+
+Text with leading and trailing spaces around delimiters and lines:
+    >>> text_indentation("   Hello.   World?   ")
+    Hello.
+    <BLANKLINE>
+    World?
+    <BLANKLINE>
+
+Text with existing newlines:
+    >>> text_indentation("Line one.\nLine two")
+    Line one.
+    <BLANKLINE>
+    Line two
+
+Text without any delimiters:
+    >>> text_indentation("Just a plain sentence")
+    Just a plain sentence
+
+Empty string:
+    >>> text_indentation("")
+
+Non-string input:
+    >>> text_indentation(123)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+Missing argument:
+    >>> text_indentation()
+    Traceback (most recent call last):
+    TypeError: text_indentation() missing 1 required positional argument: 'text'

@@ -1,0 +1,60 @@
+===========================
+How to Use 0-add_integer.py
+===========================
+
+Importing the function:
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Adding two positive integers:
+    >>> add_integer(1, 2)
+    3
+
+Adding a positive and a negative integer:
+    >>> add_integer(100, -2)
+    98
+
+Using the default value for b (98):
+    >>> add_integer(2)
+    100
+
+Adding a float and a negative integer:
+    >>> add_integer(100.3, -2)
+    98
+
+Adding two floats:
+    >>> add_integer(2.9, 2.9)
+    4
+
+Adding two negative floats:
+    >>> add_integer(-2.9, -2.9)
+    -4
+
+Passing a non-integer/float for b:
+    >>> add_integer(4, "School")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+Passing None for a:
+    >>> add_integer(None)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+Passing invalid types for both arguments:
+    >>> add_integer("hello", "world")
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+Passing float infinity:
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+Passing float NaN:
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+Calling without arguments:
+    >>> add_integer()
+    Traceback (most recent call last):
+    TypeError: add_integer() missing 1 required positional argument: 'a'

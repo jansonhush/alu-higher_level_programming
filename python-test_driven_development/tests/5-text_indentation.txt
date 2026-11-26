@@ -26,6 +26,7 @@ Text with existing newlines:
     >>> text_indentation("Line one.\nLine two")
     Line one.
     <BLANKLINE>
+    <BLANKLINE>
     Line two
 
 Text without any delimiters:
